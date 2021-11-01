@@ -9,7 +9,7 @@ import Cart from "../Pages/CartPage/CartPage";
 import MyProfile from "../Pages/MyProfilePage/MyProfilePage";
 import EditAddressPage from '../Pages/EditProfilePage/EditAddressPage/EditAddressPage';
 import EditProfilePage from '../Pages/EditProfilePage/EditProfinePage/EditProfilePage';
-import AddressPage from '../Pages/CreateAddressPage/styled';
+import AddressPage from '../Pages/CreateAddressPage/AddressPage';
 
 const Router = () => {
 
