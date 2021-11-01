@@ -23,5 +23,13 @@ export const goToProfile = (history) => {
 };
 
 export const goToEditProfile = (history) => {
-    history.push("/perfil/editar");
+    history.push("/perfil/editar-perfil");
+}
+
+export const goToEditAddress = (history) => {
+        history.push("/perfil/editar-endereco");
+};
+
+export const goToCreateAddress = (history) => {
+    history.push("/endereco");
 };
