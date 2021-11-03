@@ -1,6 +1,7 @@
 import React from "react"
 import useForm from "../../Hooks/useForm"
 import TextField  from "@material-ui/core/TextField";
+import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
 
 
 
@@ -15,75 +16,78 @@ const AddressForm = () => {
 
 
     return (
-    <div>
+    <InputsContainer>
         <form onSubmit={onSubmitForm}>
-            
-            <TextField
+            <Input_nolocus>                
+                <TextField
                 name={"street"}
-                value={form.street}
+                fullWidth
+                value= {form.street}               
                 onChange={onChange}
                 label={"Rua/Av."}
                 variant={"outlined"}
-                fullWidth
-                margin={"normal"}
-                required
-                
-            />              
-            <TextField
-                name={"number"}
-                value={form.number}
-                onChange={onChange}
-                label={"Numero"}
-                variant={"outlined"}
-                fullWidth
-                margin={"normal"}
-                required  
-            /> 
-            <TextField
-                name={"complement"}
-                value={form.complement}
-                onChange={onChange}
-                label={"Complemento"}
-                variant={"outlined"}
-                fullWidth
-                margin={"normal"}
-                
-            />  
-            <TextField
-                name={"neighbourhood"}
-                value={form.neighbourhood}
-                onChange={onChange}
-                label={"Bairro"}
-                variant={"outlined"}
-                fullWidth
-                margin={"normal"}
-                required
-                
-            /> 
-            <TextField
-                name={"city"}
-                value={form.city}
-                onChange={onChange}
-                label={"Cidade"}
-                variant={"outlined"}
-                fullWidth
-                margin={"normal"}
-                required
-            /> 
-            <TextField
-                name={"state"}
-                value={form.state}
-                onChange={onChange}
-                label={"Estado"}
-                variant={"outlined"}
-                fullWidth
-                margin={"normal"}
-                required
-            /> 
-            
-            <button type={"submit"}>Cadastrar endereço</button>  
+                required                
+                />              
+            </Input_nolocus>  
+            <Input_nolocus>           
+                <TextField
+                    name={"number"}
+                    value={form.number}
+                    onChange={onChange}
+                    label={"Numero"}
+                    variant={"outlined"}
+                    fullWidth                    
+                    required  
+                /> 
+            </Input_nolocus>
+            <Input_nolocus>
+                <TextField
+                    name={"complement"}
+                    value={form.complement}
+                    onChange={onChange}
+                    label={"Complemento"}
+                    variant={"outlined"}
+                    fullWidth
+                /> 
+            </Input_nolocus>
+            <Input_nolocus> 
+                <TextField
+                    name={"neighbourhood"}
+                    value={form.neighbourhood}
+                    onChange={onChange}
+                    label={"Bairro"}
+                    variant={"outlined"}
+                    fullWidth
+                    required                    
+                /> 
+            </Input_nolocus>
+            <Input_nolocus>
+                <TextField
+                    name={"city"}
+                    value={form.city}
+                    onChange={onChange}
+                    label={"Cidade"}
+                    variant={"outlined"}
+                    fullWidth
+                    required
+                /> 
+            </Input_nolocus>
+            <Input_nolocus>
+                <TextField
+                    name={"state"}
+                    value={form.state}
+                    onChange={onChange}
+                    label={"Estado"}
+                    variant={"outlined"}
+                    fullWidth
+                    required
+                /> 
+            </Input_nolocus>
+            <SignUpButton>
+                Salvar
+            </SignUpButton>
         </form>
-    </div>
+    </InputsContainer>
     );
 }
 
