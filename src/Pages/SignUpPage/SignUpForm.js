@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import useForm from '../../Hooks/useForm';
-import {  LoginButton, InputsContainer, PasswordInputContainer } from './styled';
+import { InputsContainer, SignUpButton } from './styled';
 import { TextField } from '@material-ui/core';
 import { signUp } from '../../Services/user';
 import { useHistory } from 'react-router-dom';
-import passwordIconOpen from '../../Assets/assets_Sign Up/senha-2.png';
-import passwordIconClosed from '../../Assets/assets_Sign Up/senha.png';
 import { InputAdornment } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import { Visibility } from '@material-ui/icons';
@@ -16,13 +14,15 @@ import { FormControl } from '@material-ui/core';
 
 const SignUpForm = () => {
     const [form, onChange, clearFields] = useForm({name:"", email: "", cpf:"", password: ""});
-    const history = useHistory()
+    const history = useHistory();
 
     const [values, setValues] = useState(false);
+    const [correctPassword, setCorrectPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleClickShowPassword = () => {
         setValues(!values);
-    }
+    };
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -30,8 +30,13 @@ const SignUpForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        signUp(form, clearFields, history);
-    }
+        if(correctPassword == confirmPassword) {
+            form.password = correctPassword;
+            signUp(form, clearFields, history);
+        } else {
+            alert(`Deve ser a mesma que a anterior`);
+        };
+    };
 
     return (
         <InputsContainer>
@@ -78,15 +83,15 @@ const SignUpForm = () => {
                 variant={"outlined"} 
                 fullWidth
                 margin={"normal"}
-                placeholder={"Mínimo 6 caracteres"}
-                value={form.password}
-                onChange={onChange}>
+                value={correctPassword}
+                onChange={(e) => setCorrectPassword(e)}>
                 <InputLabel htmlFor="outlined-adornment-password">
                 Senha
                 </InputLabel>
                 <OutlinedInput
                     id="outlined-adornment-password"
                     type={values ? 'text' : 'password'}
+                    placeholder={"Mínimo 6 caracteres"}
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton
@@ -102,9 +107,39 @@ const SignUpForm = () => {
                 label={"Password"}
                 />
             </FormControl>
-            <button>
-                Entrar
-            </button>
+            <FormControl
+                required
+                name={"confirmPassword"}
+                variant={"outlined"} 
+                fullWidth
+                margin={"normal"}
+                value={confirmPassword}
+                onChange={setConfirmPassword}>
+                <InputLabel htmlFor="outlined-adornment-password">
+                Confirmar
+                </InputLabel>
+                <OutlinedInput
+                    id="outlined-adornment-password"
+                    type={values ? 'text' : 'password'}
+                    placeholder={"Confirme a senha anterior"}
+                    endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                            >
+                            {values ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                        </InputAdornment>
+                    }
+                label={"Password"}
+                />
+            </FormControl>
+            <SignUpButton>
+                Criar
+            </SignUpButton>
             </form>
         </InputsContainer>
     )
