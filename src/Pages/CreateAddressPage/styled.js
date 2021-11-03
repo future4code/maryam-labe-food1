@@ -16,7 +16,7 @@ export const Title = styled.div`
     
 `
 
-export const Text = styled.text`
+export const Text = styled.div`
     
     height: 18px;
     font-family: Roboto;
