@@ -8,7 +8,7 @@ import SignUpForm from './SignUpForm.js';
 import useUnprotectedPage from '../../Hooks/useUnprotectedPage.js';
 
 const SignUpPage = () => {
-    // useUnprotectedPage();
+    useUnprotectedPage();
     const history = useHistory();
 
     return (
