@@ -1,0 +1,14 @@
+export const orangeyRed = "#FF3B30";
+export const tangerine = "#FF9500";
+export const marigold = "#FC0";
+export const robinSegg = "#4CD964";
+export const deepSkyBlue = "#007AFF";
+export const warmBlue = "#5856D6";
+export const reddishPink = "#FF2D55";
+export const paleGray = "#EFEFF4";
+export const paleLilac = "#E5E4EA";
+export const lightBlueGrey = "#D1D1D6";
+export const lightBlueGreyTwo = "#C7C7CC";
+export const blueGrey = "#8E8E93";
+export const whiteTwo = "#FEFEFE";
+export const darkPeach = "#E86E5A";
