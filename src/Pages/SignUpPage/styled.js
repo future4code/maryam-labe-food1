@@ -46,4 +46,14 @@ export const InputsContainer = styled.div`
     margin-bottom: 20px;    
 `
 
-export const LoginButton = styled.div``
+export const SignUpButton = styled.button`
+    font-size: 16px;
+    align-self: center;
+    margin: auto;
+    margin-top: 16px;
+    width: 90vw;
+    height: 42px;
+    border-radius: 2px;
+    border: none;
+    background-color: #E86E5A;
+`
