@@ -17,15 +17,17 @@ const AddressForm = () => {
     return (
     <div>
         <form onSubmit={onSubmitForm}>
+            
             <TextField
                 name={"street"}
                 value={form.street}
                 onChange={onChange}
-                label={"Endereço"}
+                label={"Rua/Av."}
                 variant={"outlined"}
                 fullWidth
                 margin={"normal"}
                 required
+                
             />              
             <TextField
                 name={"number"}

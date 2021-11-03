@@ -1,5 +1,6 @@
 import React from "react"
 import AddressForm from "./AddressForm";
+import { CadastroDeEndereco, Title, Text } from "./styled";
 
 
 
@@ -9,10 +10,12 @@ const AddressPage = () => {
     
 
     return (
-        <div >
-            AddressPage
+        <CadastroDeEndereco >
+            <Title>
+                <Text>Meu endereço</Text>
+            </Title>    
             <AddressForm/>
-        </div>
+        </CadastroDeEndereco>
     );
 }
 
