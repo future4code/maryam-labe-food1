@@ -18,6 +18,7 @@ const LoginForm = () => {
         <InputsContainer>
             <form onSubmit={onSubmitForm}>
                 <TextField
+                    required
                     name={"email"}
                     value={form.email}
                     onChange={onChange}
@@ -29,6 +30,7 @@ const LoginForm = () => {
                     placeholder={"email@email.com"}
                 />
                 <TextField
+                    required
                     name={"password"}
                     value={form.password}
                     onChange={onChange}
