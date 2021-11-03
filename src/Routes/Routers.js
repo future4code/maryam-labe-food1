@@ -7,7 +7,9 @@ import HomePage from "../Pages/HomePage/HomePage";
 import Restaurant from "../Pages/RestaurantPage/RestaurantPage";
 import Cart from "../Pages/CartPage/CartPage";
 import MyProfile from "../Pages/MyProfilePage/MyProfilePage";
-import EditProfile from "../Pages/EditProfilePage/EditProfilePage";
+import EditAddressPage from '../Pages/EditProfilePage/EditAddressPage/EditAddressPage';
+import EditProfilePage from '../Pages/EditProfilePage/EditProfinePage/EditProfilePage';
+import AddressPage from '../Pages/CreateAddressPage/AddressPage';
 
 const Router = () => {
 
@@ -20,6 +22,9 @@ const Router = () => {
                 <Route exact path={"/cadastro"}>
                     <SignUp />
                 </Route>
+                <Route exact path={"/endereco"}>
+                    <AddressPage />
+                </Route>
                 <Route exact path={"/"}>
                     <HomePage />
                 </Route>
@@ -31,9 +36,12 @@ const Router = () => {
                 </Route>
                 <Route exact path={"/perfil/"}>
                     <MyProfile />
+                </Route>                
+                <Route exact path={"/perfil/editar-perfil"}>
+                    <EditProfilePage />
                 </Route>
-                <Route exact path={"/perfil/editar"}>
-                    <EditProfile />
+                <Route exact path={"/perfil/editar-endereco"}>
+                    <EditAddressPage />
                 </Route>
                 <Route>
                     <ErrorPage />
