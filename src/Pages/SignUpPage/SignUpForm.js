@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useForm from '../../Hooks/useForm';
 import { InputsContainer, SignUpButton } from './styled';
-import { TextField } from '@material-ui/core';
+import { FormHelperText, TextField } from '@material-ui/core';
 import { signUp } from '../../Services/user';
 import { useHistory } from 'react-router-dom';
 import { InputAdornment } from '@material-ui/core';
@@ -19,6 +19,7 @@ const SignUpForm = () => {
     const [values, setValues] = useState(false);
     const [correctPassword, setCorrectPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [inputError, setInputError] = useState(false);
 
     const handleClickShowPassword = () => {
         setValues(!values);
@@ -27,6 +28,8 @@ const SignUpForm = () => {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+   
+    const [helperText, setHelperText] = useState("");
 
     const onSubmitForm = (event) => {
         event.preventDefault();
@@ -34,7 +37,8 @@ const SignUpForm = () => {
             form.password = correctPassword;
             signUp(form, clearFields, history);
         } else {
-            alert(`Deve ser a mesma que a anterior`);
+            setHelperText("Deve ser a mesma que a anterior.");
+            setInputError(true);
         };
     };
 
@@ -108,6 +112,7 @@ const SignUpForm = () => {
                 />
             </FormControl>
             <FormControl
+                error={inputError}
                 required
                 name={"confirmPassword"}
                 variant={"outlined"} 
@@ -134,8 +139,8 @@ const SignUpForm = () => {
                             </IconButton>
                         </InputAdornment>
                     }
-                label={"Password"}
-                />
+                label={"Password"}/>
+                <FormHelperText>{helperText}</FormHelperText>
             </FormControl>
             <SignUpButton>
                 Criar
