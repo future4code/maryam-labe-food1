@@ -1,16 +1,20 @@
 import axios  from "axios";
-import BASE_URL from "../constants/urls"
-import {goToCreateAddress} from "../Routes/coordinator"
+import { goToHome } from "../Routes/coordinator";
 
 
-export const login = (body, clear, history) => {
+export const createAddress = (body, clearFields, history) => {
     axios
-    .post(`${BASE_URL}/profile/address`, body)
-    .then((res)=>{
-        localStorage.setItem("token", res.data.token)
-        clear()
-        goToCreateAddress(history)
-        
+    .post(`https://us-central1-missao-newton.cloudfunctions.net/rappi4A/address`, body)
+    .then((response) => {
+        localStorage.setItem("token", response.data.token);        
+        clearFields();
+        console.log(response.data.token)
+        goToHome(history);
     })
-    .catch((err)=>alert(err.response.data.message))
-}
+    .catch((error) => {
+        alert("Erro ao cadastrar endereço, tente novamente!");
+        console.log(error.response.data.message);
+    })
+};
+
+
