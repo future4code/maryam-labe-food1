@@ -23,6 +23,7 @@ import {
   goToCart,
   goToProfile,
   goToEditProfile,
+  goToCreateAddress,
 } from "../../Routes/coordinator";
 import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
 import homepage from "../../Assets/assets_MyProfilePage/homepage.svg";
@@ -118,7 +119,7 @@ const MyProfilePage = () => {
           <TextP>{profile && profile.address}</TextP>
         </div>
         <div>
-          <EditButton onClick={() => goToEditProfile(history)}>
+          <EditButton onClick={() => goToCreateAddress(history)}>
             <img src={edit} />
           </EditButton>
         </div>
