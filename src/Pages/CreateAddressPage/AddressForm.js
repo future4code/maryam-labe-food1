@@ -5,6 +5,7 @@ import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
 import { useHistory}  from 'react-router-dom';
 import {createAddress} from "../../Services/addressRequest"
 import useProtectedPage from "../../Hooks/useProtectedPage";
+import { goToLogin } from "../../Routes/coordinator";
 
 
 
@@ -91,7 +92,10 @@ const AddressForm = () => {
                     /> 
                 </Input_nolocus>
 
-                <SignUpButton>
+                <SignUpButton onClick={() => goToLogin(history)}
+            type={"submit"}
+            fullWidth
+            variant={"text"}>
                     Salvar
                 </SignUpButton>
                 
