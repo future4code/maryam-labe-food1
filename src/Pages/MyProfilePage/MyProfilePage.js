@@ -28,8 +28,10 @@ import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
 import homepage from "../../Assets/assets_MyProfilePage/homepage.svg";
 import shoppingcart from "../../Assets/assets_MyProfilePage/shoppingcart.svg";
 import edit from "../../Assets/assets_MyProfilePage/edit.svg";
+import useProtectedPage from "../../Hooks/useProtectedPage";
 
 const MyProfilePage = () => {
+  useProtectedPage();
   const history = useHistory();
   const [profile, setProfile] = useState({});
   const [orderHistory, setOrderHistory] = useState([]);

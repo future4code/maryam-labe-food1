@@ -2,8 +2,10 @@ import React, {useState, useEffect} from "react";
 import axios from "axios"
 import HomeCard from "../../Components/HomeCard";
 import { HomeContainer, Title, Search, Filters, Feed } from "./styled";
+import useProtectedPage from "../../Hooks/useProtectedPage";
 
 const HomePage = () => {
+    useProtectedPage();
 
     const [restaurants, setRestaurants] = useState([])
 
