@@ -2,13 +2,13 @@ import React from "react"
 import AddressForm from "./AddressForm";
 import { CadastroDeEndereco, Title, Text, Header, BackButton} from "./styled";
 import { useHistory } from 'react-router-dom';
-import useUnprotectedPage from '../../Hooks/useUnprotectedPage.js';
+import useProtectedPage from '../../Hooks/useProtectedPage.js';
 import { goToLogin} from '../../Routes/coordinator.js';
 import back from "../../Assets/assets_Sign Up/back.png";
 
 
 const AddressPage = () => {
-    // useUnprotectedPage();
+    useProtectedPage();
     const history = useHistory();
     
 
