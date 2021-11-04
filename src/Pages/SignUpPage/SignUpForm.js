@@ -42,6 +42,11 @@ const SignUpForm = () => {
         };
     };
 
+    const maskedCPF = (cpf) => {
+        let maskedValue = cpf.replace(/\D+/g,"");
+        return maskedValue;
+    }
+
     return (
         <InputsContainer>
             <form onSubmit={onSubmitForm}>
@@ -72,7 +77,7 @@ const SignUpForm = () => {
                 <TextField
                     name={"cpf"}
                     value={form.cpf}
-                    onChange={onChange}
+                    onChange={(event)=> onChange(event, maskedCPF)}
                     label={"CPF"} 
                     variant={"outlined"}
                     fullWidth
@@ -82,27 +87,28 @@ const SignUpForm = () => {
                     placeholder={"000.000.000-00"}
                 />
                 <FormControl
-                required
-                name={"password"}
-                variant={"outlined"} 
-                fullWidth
-                margin={"normal"}
-                value={correctPassword}
-                onChange={(e) => setCorrectPassword(e)}>
+                    required
+                    variant={"outlined"} 
+                    fullWidth
+                    margin={"normal"}
+                >
                 <InputLabel htmlFor="outlined-adornment-password">
-                Senha
+                    Senha
                 </InputLabel>
                 <OutlinedInput
+                    name={"password"}
+                    value={correctPassword}
+                    onChange={(event) => setCorrectPassword(event.target.value)}
                     id="outlined-adornment-password"
                     type={values ? 'text' : 'password'}
                     placeholder={"Mínimo 6 caracteres"}
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end"
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
                             >
                             {values ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
@@ -114,16 +120,17 @@ const SignUpForm = () => {
             <FormControl
                 error={inputError}
                 required
-                name={"confirmPassword"}
                 variant={"outlined"} 
                 fullWidth
                 margin={"normal"}
-                value={confirmPassword}
-                onChange={setConfirmPassword}>
+            >
                 <InputLabel htmlFor="outlined-adornment-password">
-                Confirmar
+                    Confirmar
                 </InputLabel>
                 <OutlinedInput
+                    name={"confirmPassword"}
+                    value={confirmPassword}
+                    onChange={(event) => setConfirmPassword(event.target.value)}
                     id="outlined-adornment-password"
                     type={values ? 'text' : 'password'}
                     placeholder={"Confirme a senha anterior"}
