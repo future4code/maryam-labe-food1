@@ -8,8 +8,6 @@ import { HomeContainer, Title, Search, Filters, FiltersOff, FiltersOn, Feed } fr
 const HomePage = () => {
     useProtectedPage();
 
-    
-
     const [restaurants, setRestaurants] = useState([])
     const [allRestaurants, setAllRestaurants] = useState([])
     const [flagRestaurants, setFlagRestaurants] = useState(false)
