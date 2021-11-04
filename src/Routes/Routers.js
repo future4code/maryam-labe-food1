@@ -4,12 +4,12 @@ import Login from "../Pages/LoginPage/LoginPage";
 import SignUp from "../Pages/SignUpPage/SignUpPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import HomePage from "../Pages/HomePage/HomePage";
-import Restaurant from "../Pages/RestaurantPage/RestaurantPage";
 import Cart from "../Pages/CartPage/CartPage";
 import MyProfile from "../Pages/MyProfilePage/MyProfilePage";
 import EditAddressPage from '../Pages/EditProfilePage/EditAddressPage/EditAddressPage';
 import EditProfilePage from '../Pages/EditProfilePage/EditProfinePage/EditProfilePage';
 import AddressPage from '../Pages/CreateAddressPage/AddressPage';
+import RestaurantPage from '../Pages/RestaurantPage/RestaurantPage';
 
 const Router = () => {
 
@@ -29,7 +29,7 @@ const Router = () => {
                     <HomePage />
                 </Route>
                 <Route exact path={"/restaurante/:id"}>
-                    <Restaurant />
+                    <RestaurantPage />
                 </Route>
                 <Route exact path={"/carrinho"}>
                     <Cart />

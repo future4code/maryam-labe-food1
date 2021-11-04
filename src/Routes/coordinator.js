@@ -7,6 +7,7 @@ export const goToHome = (history) => {
 };
 
 export const goToRestaurant = (history, id) => {
+    console.log("param", id)
     history.push(`/restaurante/${id}`);
 };
 

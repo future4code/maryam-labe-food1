@@ -7,11 +7,13 @@ const useRequestData = (initialData, url) => {
     useEffect(() => {
         axios.get (url, {
             headers: {
-                Authorization: localStorage.getItem('token')
+                auth: localStorage.getItem('token')
             }
         })
             .then((res) => {
-                setData(res.data)
+                console.log("restaurantes",res.data.restaurant)
+                setData(res.data.restaurant)
+                
             })
             .catch((err) => {
                 console.log(err)
