@@ -12,6 +12,7 @@ export const login = (body, clearFields, history) => {
     .catch((error) => {
         alert("Erro ao fazer o login, tente novamente!");
         console.log(error.response.data.message);
+        console.log(body)
     })
 };
 

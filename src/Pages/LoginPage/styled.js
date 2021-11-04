@@ -33,6 +33,7 @@ export const LoginButton = styled.button`
     border-radius: 2px;
     border: none;
     background-color: #E86E5A;
+    cursor: pointer;
 `
 
 export const SignUpButtonContainer = styled.div`
