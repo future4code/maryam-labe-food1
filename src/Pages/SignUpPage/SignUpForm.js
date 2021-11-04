@@ -11,6 +11,7 @@ import { VisibilityOff } from '@material-ui/icons';
 import { OutlinedInput } from '@material-ui/core';
 import { InputLabel } from '@material-ui/core';
 import { FormControl } from '@material-ui/core';
+import {goToCreateAddress} from "../../Routes/coordinator"
 
 const SignUpForm = () => {
     const [form, onChange, clearFields] = useForm({name:"", email: "", cpf:"", password: ""});
@@ -149,7 +150,10 @@ const SignUpForm = () => {
                 label={"Password"}/>
                 <FormHelperText>{helperText}</FormHelperText>
             </FormControl>
-            <SignUpButton>
+            <SignUpButton onClick={() => goToCreateAddress(history)}
+            type={"submit"}
+            fullWidth
+            variant={"text"}>
                 Criar
             </SignUpButton>
             </form>

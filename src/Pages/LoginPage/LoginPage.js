@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
 
 const LoginPage = () => {
+
     useUnprotectedPage();
     const history = useHistory();
 
