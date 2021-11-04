@@ -9,7 +9,7 @@ import useProtectedPage from "../../Hooks/useProtectedPage";
 
 
 const AddressForm = () => {
-    useProtectedPage();
+    //useProtectedPage();
     const[form,onChange,clearFields] = useForm({street:"", number:"", neighbourhood:"", city:"", state:"", complement:""})
     const history = useHistory();
 
