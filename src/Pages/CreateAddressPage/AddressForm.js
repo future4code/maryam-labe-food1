@@ -4,10 +4,12 @@ import TextField  from "@material-ui/core/TextField";
 import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
 import { useHistory}  from 'react-router-dom';
 import {createAddress} from "../../Services/addressRequest"
+import useProtectedPage from "../../Hooks/useProtectedPage";
 
 
 
 const AddressForm = () => {
+    useProtectedPage();
     const[form,onChange,clearFields] = useForm({street:"", number:"", neighbourhood:"", city:"", state:"", complement:""})
     const history = useHistory();
 

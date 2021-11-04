@@ -3,9 +3,15 @@ import axios from "axios";
 import useForm from "../../Hooks/useForm";
 import useProtectedPage from "../../Hooks/useProtectedPage";
 import HomeCard from "../../Components/HomeCard";
+<<<<<<< HEAD
 import { HomeContainer, Title, Search, Filters, FiltersOff, FiltersOn, Feed } from "./styled";
+=======
+import { HomeContainer, Title, Search, Filters, Feed } from "./styled";
+import useProtectedPage from "../../Hooks/useProtectedPage";
+>>>>>>> master
 
 const HomePage = () => {
+    useProtectedPage();
 
     // useProtectedPage()
 

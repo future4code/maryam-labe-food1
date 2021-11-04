@@ -6,7 +6,7 @@ import { CardContainer, Card, CardImage, CardDetails, Name, Delivery, Time, Frei
 const HomeCard = (props) => {
 
     const history = useHistory()
-
+    console.log("card", props.restId)
     return(
         <CardContainer>
             <Card onClick={() => goToRestaurant (history, props.restId)}>
