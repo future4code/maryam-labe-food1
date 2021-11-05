@@ -13,7 +13,9 @@ import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
 
 const HomePage = () => {
 
+
     useProtectedPage()
+
 
     const history = useHistory()
 
