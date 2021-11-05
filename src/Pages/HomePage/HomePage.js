@@ -1,13 +1,29 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useLayoutEffect} from "react";
 import axios from "axios";
 import useForm from "../../Hooks/useForm";
 import useProtectedPage from "../../Hooks/useProtectedPage";
 import HomeCard from "../../Components/HomeCard";
+<<<<<<< HEAD
+import { useHistory } from "react-router-dom";
+import { goToHome, goToCart, goToProfile } from "../../Routes/coordinator";
+import { HomeContainer, Title, Search, Filters, FiltersOff, FiltersOn, Feed, MenuTab } from "./styled";
+import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
+import homepage from "../../Assets/assets_MyProfilePage/homepage.svg";
+import shoppingcart from "../../Assets/assets_MyProfilePage/shoppingcart.svg";
+import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
+=======
 import { HomeContainer, Title, Search, Filters, FiltersOff, FiltersOn, Feed } from "./styled";
+>>>>>>> 3915cfcfc5301cb6ce08f5347a063618cf963858
 
 const HomePage = () => {
-    useProtectedPage();
 
+<<<<<<< HEAD
+    // useProtectedPage()
+
+    const history = useHistory()
+
+=======
+>>>>>>> 3915cfcfc5301cb6ce08f5347a063618cf963858
     const [restaurants, setRestaurants] = useState([])
     const [allRestaurants, setAllRestaurants] = useState([])
     const [flagRestaurants, setFlagRestaurants] = useState(false)
@@ -19,7 +35,6 @@ const HomePage = () => {
     const [massaFilter, setMassaFilter] = useState(false)
     const [mexicanaFilter, setMexicanaFilter] = useState(false)
     const [petiscoFilter, setPetiscoFilter] = useState(false)
-    const [saudavelFilter, setSaudavelFilter] = useState(false)
     const [sobremesaFilter, setSobremesaFilter] = useState(false)
     const [form, onChange, cleanFields] = useForm({name:''})
 
@@ -41,11 +56,9 @@ const HomePage = () => {
             })
     }
     
-    useEffect(() => {
+    useLayoutEffect(() => {
         getRestaurants()
     }, [flagRestaurants])
-
-    console.log(restaurants)
 
     const filtersButtons = (filter, turnsOff) => {
 
@@ -58,7 +71,6 @@ const HomePage = () => {
             setPetiscoFilter(false)
             setMassaFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false) 
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
@@ -75,7 +87,6 @@ const HomePage = () => {
             setPetiscoFilter(false)
             setMassaFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false)
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
@@ -92,7 +103,6 @@ const HomePage = () => {
             setPetiscoFilter(false)
             setMassaFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false)
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
@@ -109,7 +119,6 @@ const HomePage = () => {
             setPetiscoFilter(false)
             setMassaFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false)
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
@@ -126,7 +135,6 @@ const HomePage = () => {
             setPetiscoFilter(false)
             setMassaFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false)
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
@@ -143,7 +151,6 @@ const HomePage = () => {
             setCarneFilter(false)
             setMassaFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false) 
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
@@ -160,7 +167,6 @@ const HomePage = () => {
             setCarneFilter(false)
             setPetiscoFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false) 
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
@@ -177,28 +183,10 @@ const HomePage = () => {
             setCarneFilter(false)
             setPetiscoFilter(false)
             setMassaFilter(false)
-            setSaudavelFilter(false)
             setSobremesaFilter(false) 
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
                 return(restaurant.category === 'Mexicana')
-            })
-
-            setRestaurants(filteredList)
-        } else if (filter === 'saudavel'){
-            setSaudavelFilter(!saudavelFilter)
-            setArabeFilter(false)
-            setAsiaticaFilter(false)
-            setBaianaFilter(false)
-            setBurguerFilter(false)
-            setCarneFilter(false)
-            setPetiscoFilter(false)
-            setMassaFilter(false)
-            setMexicanaFilter(false)
-            setSobremesaFilter(false)
-
-            const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
-                return(restaurant.category === 'Saudáveis')
             })
 
             setRestaurants(filteredList)
@@ -212,7 +200,6 @@ const HomePage = () => {
             setPetiscoFilter(false)
             setMassaFilter(false)
             setMexicanaFilter(false)
-            setSaudavelFilter(false)
 
             const filteredList = allRestaurants && allRestaurants.filter((restaurant) => {
                 return(restaurant.category === 'Sorvetes')
@@ -250,12 +237,13 @@ const HomePage = () => {
             <HomeCard 
                 key={restaurant.id}
                 restId={restaurant.id}
-                description={restaurant.description}
-                shipping={restaurant.shipping}
-                address={restaurant.address}
                 name={restaurant.name}
-                logoUrl={restaurant.logoUrl} 
+                category={restaurant.category}
+                description={restaurant.description}
+                address={restaurant.address}
                 deliveryTime={restaurant.deliveryTime}
+                shipping={restaurant.shipping}
+                logoUrl={restaurant.logoUrl} 
             />
         )
     })
@@ -277,12 +265,29 @@ const HomePage = () => {
                 {(massaFilter) ? (<FiltersOn onClick={() => filtersButtons('massa', true)} >Massa</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('massa', false)} >Massa</FiltersOff>)}
                 {(mexicanaFilter) ? (<FiltersOn onClick={() => filtersButtons('mexicana', true)} >Mexicana</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('mexicana', false)} >Mexicana</FiltersOff>)}
                 {(petiscoFilter) ? (<FiltersOn onClick={() => filtersButtons('petisco', true)} >Petisco</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('petisco', false)} >Petisco</FiltersOff>)}
-                {(saudavelFilter) ? (<FiltersOn onClick={() => filtersButtons('saudavel', true)} >Saudável</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('saudavel', false)} >Saudável</FiltersOff>)}
                 {(sobremesaFilter) ? (<FiltersOn onClick={() => filtersButtons('sobremesa', true)} >Sobremesa</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('sobremesa', false)} >Sobremesa</FiltersOff>)}                    
             </Filters>
             <Feed>
-                {listRestaurants}
+                {restaurants.length > 0 ? (listRestaurants)
+                :
+                <h1>Desculpa, não encontramos!</h1>}
             </Feed>
+            <MenuTab>
+                <BottomNavigation showLabels>
+                    <BottomNavigationAction
+                        onClick={() => goToHome(history)}
+                        icon={<img src={homepage} alt="" />}
+                    />
+                    <BottomNavigationAction
+                        onClick={() => goToCart(history)}
+                        icon={<img src={shoppingcart} alt="" />}
+                    />
+                    <BottomNavigationAction
+                        onClick={() => goToProfile(history)}
+                        icon={<img src={avatar} alt="" />}
+                    />
+                </BottomNavigation>
+            </MenuTab>
         </HomeContainer>
     )
 }

@@ -30,16 +30,17 @@ export const Title = styled.div`
 `
 
 export const Search = styled.input`
-    width: 328px;
-    height: 56px;
+    width: 300px;
+    height: 30px;
     padding: 16px 8px 16px 17px;
     border-radius: 2px;
     border: solid 1px #b8b8b8;
 `
 
 export const Filters = styled.div`
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     width: 360px;
     height: 42px;
     margin: 8px 0 0;
@@ -80,4 +81,14 @@ export const Feed = styled.div`
     height: 196px;
     margin: 50px 0 0;
     padding: 8px 16px 0;
+    h1 {
+        text-align: center;
+    }
+`
+
+export const MenuTab = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #b8b8b8;
 `
