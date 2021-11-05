@@ -59,7 +59,6 @@ const EditAddressForm = () => {
                         label={address && address.street}
                         variant={"outlined"}
                         placeholder={"Rua/Av."}
-                       
                         required                
                     />           
                 </Input_nolocus>  
