@@ -30,7 +30,7 @@ const MyProfilePage = () => {
   const getProfile = () => {
     axios
       .get(
-        `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile`,
+        `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile/`,
         {
           headers: {
             auth: window.localStorage.getItem("token"),
@@ -39,6 +39,7 @@ const MyProfilePage = () => {
       )
       .then((res) => {
         setProfile(res.data.user);
+        
       })
       .catch((err) => {
         console.log(err);
