@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import useForm from "../../../Hooks/useForm"
 import TextField  from "@material-ui/core/TextField";
 import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
@@ -10,18 +11,41 @@ import { goToProfile } from "../../../Routes/coordinator";
 
 
 const EditAddressForm = () => {
-    useProtectedPage();
-    const[form,onChange,clearFields] = useForm({street:"", number:"", neighbourhood:"", city:"", state:"", complement:""})
+    useProtectedPage();    
+    const [address, setAddress] = useState({});
+    const[form,onChange,clearFields] = useForm({street: "" , number:[], neighbourhood:"", city:"", state:"", complement:""})
     const history = useHistory();
+    
 
+    const getAddress = () => {
+        axios
+            .get(
+            `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile/address`,
+            {
+                headers: {
+                    auth: window.localStorage.getItem("token"),
+                },
+            })
+            .then((res) => {
+            setAddress(res.data.address);
+            
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+    
 
+    useEffect(() => {
+        getAddress();
+    }, []);
 
 
     const onSubmitForm = (event) => {
-        createAddress(form, clearFields, history)
-    
+        createAddress(form, clearFields, history, address)
     }
 
+    
 
     return (
         <InputsContainer>
@@ -32,19 +56,22 @@ const EditAddressForm = () => {
                         fullWidth
                         value= {form.street}               
                         onChange={onChange}
-                        label={"Rua/Av."}
+                        label={address && address.street}
                         variant={"outlined"}
+                        placeholder={"Rua/Av."}
+                       
                         required                
-                    />              
+                    />           
                 </Input_nolocus>  
                 <Input_nolocus>           
                     <TextField
                         name={"number"}
                         value={form.number}
                         onChange={onChange}
-                        label={"Numero"}
+                        label={address && address.number}
                         variant={"outlined"}
-                        fullWidth                    
+                        placeholder={"Número"}
+                        fullWidth   
                         required  
                     /> 
                 </Input_nolocus>
@@ -53,8 +80,9 @@ const EditAddressForm = () => {
                         name={"complement"}
                         value={form.complement}
                         onChange={onChange}
-                        label={"Complemento"}
+                        label={address && address.complement}
                         variant={"outlined"}
+                        placeholder={"Apto./Bloco"}
                         fullWidth
                     /> 
                 </Input_nolocus>
@@ -63,8 +91,9 @@ const EditAddressForm = () => {
                         name={"neighbourhood"}
                         value={form.neighbourhood}
                         onChange={onChange}
-                        label={"Bairro"}
+                        label={address && address.neighbourhood}
                         variant={"outlined"}
+                        placeholder={"Bairro"}
                         fullWidth
                         required                    
                     /> 
@@ -74,8 +103,9 @@ const EditAddressForm = () => {
                         name={"city"}
                         value={form.city}
                         onChange={onChange}
-                        label={"Cidade"}
+                        label={address && address.city}
                         variant={"outlined"}
+                        placeholder={"Cidade"}
                         fullWidth
                         required
                     /> 
@@ -85,8 +115,9 @@ const EditAddressForm = () => {
                         name={"state"}
                         value={form.state}
                         onChange={onChange}
-                        label={"Estado"}
+                        label={address && address.state}
                         variant={"outlined"}
+                        placeholder={"Estado"}
                         fullWidth
                         required
                     /> 

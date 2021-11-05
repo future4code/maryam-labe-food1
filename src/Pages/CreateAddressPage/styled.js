@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const CadastroDeEndereco = styled.div`
-    width: 360px;
-    height: 640px;
-    padding: 0 0 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
-
 
 export const Title = styled.div`
     width: 296px;

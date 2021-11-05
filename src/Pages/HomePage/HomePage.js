@@ -270,15 +270,15 @@ const HomePage = () => {
                 <BottomNavigation showLabels>
                     <BottomNavigationAction
                         onClick={() => goToHome(history)}
-                        icon={<img src={homepage} alt="" />}
+                        icon={<img src={homepage} alt="icone da Home Page" />}
                     />
                     <BottomNavigationAction
                         onClick={() => goToCart(history)}
-                        icon={<img src={shoppingcart} alt="" />}
+                        icon={<img src={shoppingcart} alt="icone do Carrinho" />}
                     />
                     <BottomNavigationAction
                         onClick={() => goToProfile(history)}
-                        icon={<img src={avatar} alt="" />}
+                        icon={<img src={avatar} alt="icone do Perfil do Usuário" />}
                     />
                 </BottomNavigation>
             </MenuTab>

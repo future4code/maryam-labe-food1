@@ -26,14 +26,15 @@ const AddressForm = () => {
     return (
         <InputsContainer>
             <form onSubmit={onSubmitForm}>
-                <Input_nolocus>                
+            <Input_nolocus>                
                     <TextField
                         name={"street"}
                         fullWidth
                         value= {form.street}               
                         onChange={onChange}
-                        label={"Rua/Av."}
+                        label={"Logradouro"}
                         variant={"outlined"}
+                        placeholder={"Rua/Av."}
                         required                
                     />              
                 </Input_nolocus>  
@@ -44,7 +45,8 @@ const AddressForm = () => {
                         onChange={onChange}
                         label={"Numero"}
                         variant={"outlined"}
-                        fullWidth                    
+                        fullWidth   
+                        placeholder={"Numero"}                 
                         required  
                     /> 
                 </Input_nolocus>
@@ -55,6 +57,7 @@ const AddressForm = () => {
                         onChange={onChange}
                         label={"Complemento"}
                         variant={"outlined"}
+                        placeholder={"Apto./Bloco"}
                         fullWidth
                     /> 
                 </Input_nolocus>
@@ -65,6 +68,7 @@ const AddressForm = () => {
                         onChange={onChange}
                         label={"Bairro"}
                         variant={"outlined"}
+                        placeholder={"Bairro"}
                         fullWidth
                         required                    
                     /> 
@@ -76,6 +80,7 @@ const AddressForm = () => {
                         onChange={onChange}
                         label={"Cidade"}
                         variant={"outlined"}
+                        placeholder={"Cidade"}
                         fullWidth
                         required
                     /> 
@@ -87,11 +92,12 @@ const AddressForm = () => {
                         onChange={onChange}
                         label={"Estado"}
                         variant={"outlined"}
+                        placeholder={"Estado"}
                         fullWidth
                         required
                     /> 
                 </Input_nolocus>
-
+                
                 <SignUpButton onClick={() => goToLogin(history)}
             type={"submit"}
             fullWidth
