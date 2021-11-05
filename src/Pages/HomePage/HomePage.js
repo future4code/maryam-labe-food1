@@ -2,7 +2,7 @@ import React, {useState, useLayoutEffect} from "react";
 import axios from "axios";
 import useProtectedPage from "../../Hooks/useProtectedPage";
 import useForm from "../../Hooks/useForm";
-import HomeCard from "../../Components/HomeCard";
+import HomeCard from "../../Components/HomeCard/HomeCard";
 import Footer from "../../Components/Footer/Footer";
 import { HomeContainer, Title, FilterName, Search, Filters, FiltersOff, FiltersOn, Feed } from "./styled";
 import search from "../../Assets/assets_MyProfilePage/search.svg";

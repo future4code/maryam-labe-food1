@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { goToRestaurant } from "../Routes/coordinator";
+import { goToRestaurant } from "../../Routes/coordinator";
 import { CardContainer, Card, CardImage, CardDetails, Name, Delivery, Time, Freight } from "./StyledHomeCard";
 
 const HomeCard = (props) => {

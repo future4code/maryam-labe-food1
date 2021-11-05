@@ -96,16 +96,9 @@ export const FiltersOn = styled.span`
 export const Feed = styled.div`
     width: 360px;
     height: 196px;
-    margin: 50px 0 0;
+    margin: 5px 0 0;
     padding: 8px 16px 0;
     h1 {
         text-align: center;
     }
-`
-
-export const MenuTab = styled.div`
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #b8b8b8;
 `
