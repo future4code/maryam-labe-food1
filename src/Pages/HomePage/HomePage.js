@@ -1,23 +1,16 @@
 import React, {useState, useLayoutEffect} from "react";
 import axios from "axios";
-import useForm from "../../Hooks/useForm";
 import useProtectedPage from "../../Hooks/useProtectedPage";
+import useForm from "../../Hooks/useForm";
 import HomeCard from "../../Components/HomeCard";
-import { useHistory } from "react-router-dom";
-import { goToHome, goToCart, goToProfile } from "../../Routes/coordinator";
-import { HomeContainer, Title, Search, Filters, FiltersOff, FiltersOn, Feed, MenuTab } from "./styled";
-import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
-import homepage from "../../Assets/assets_MyProfilePage/homepage.svg";
-import shoppingcart from "../../Assets/assets_MyProfilePage/shoppingcart.svg";
-import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
+import Footer from "../../Components/Footer/Footer";
+import { HomeContainer, Title, FilterName, Search, Filters, FiltersOff, FiltersOn, Feed } from "./styled";
+import search from "../../Assets/assets_MyProfilePage/search.svg";
+
 
 const HomePage = () => {
 
-
     useProtectedPage()
-
-
-    const history = useHistory()
 
     const [restaurants, setRestaurants] = useState([])
     const [allRestaurants, setAllRestaurants] = useState([])
@@ -248,9 +241,10 @@ const HomePage = () => {
             <Title>
                 <span>Rappi4</span>
             </Title>
-            <form onSubmit={onSubmitForm}>
+            <FilterName onSubmit={onSubmitForm}>
+                <button><img src={search} alt="" /></button>
                 <Search placeholder = 'Restaurante' name={"name"} value={form.name} onChange={onChange} required type={"text"} />  
-            </form>
+            </FilterName>
             <Filters>
                 {(arabeFilter) ? (<FiltersOn onClick={() => filtersButtons('arabe', true)} >Árabe</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('arabe', false)} >Árabe</FiltersOff>)}
                 {(asiaticaFilter) ? (<FiltersOn onClick={() => filtersButtons('asiatica', true)} >Asiática</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('asiatica', false)} >Asiática</FiltersOff>)}
@@ -267,22 +261,7 @@ const HomePage = () => {
                 :
                 <h1>Desculpa, não encontramos!</h1>}
             </Feed>
-            <MenuTab>
-                <BottomNavigation showLabels>
-                    <BottomNavigationAction
-                        onClick={() => goToHome(history)}
-                        icon={<img src={homepage} alt="icone da Home Page" />}
-                    />
-                    <BottomNavigationAction
-                        onClick={() => goToCart(history)}
-                        icon={<img src={shoppingcart} alt="icone do Carrinho" />}
-                    />
-                    <BottomNavigationAction
-                        onClick={() => goToProfile(history)}
-                        icon={<img src={avatar} alt="icone do Perfil do Usuário" />}
-                    />
-                </BottomNavigation>
-            </MenuTab>
+            <Footer />
         </HomeContainer>
     )
 }
