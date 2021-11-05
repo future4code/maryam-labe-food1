@@ -8,7 +8,7 @@ export const profileRequest = (body, clearFields, history) => {
         {headers: {auth: window.localStorage.getItem("token"), 'Content-Type': 'application/json'}})
 
     .then((res) => {
-        localStorage.setItem("token", res.data.token);        
+                
         clearFields();
        
     })

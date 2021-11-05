@@ -20,6 +20,7 @@ import { goToEditProfile, goToEditAddress } from "../../Routes/coordinator";
 import edit from "../../Assets/assets_MyProfilePage/edit.svg";
 import useProtectedPage from "../../Hooks/useProtectedPage";
 import Footer from "../../Components/Footer/Footer";
+import { profileRequest } from "../../Services/profileRequest";
 
 const MyProfilePage = () => {
   useProtectedPage();
@@ -66,8 +67,9 @@ const MyProfilePage = () => {
   };
 
   useEffect(() => {
-    getProfile();
+    
     getOrderHistory();
+    getProfile();
   }, []);
 
   const orderComponents = orderHistory.map((order) => {
