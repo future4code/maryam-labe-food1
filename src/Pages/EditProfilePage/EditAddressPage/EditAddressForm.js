@@ -19,7 +19,7 @@ const EditAddressForm = () => {
 
     const getAddress = () => {
         axios
-            .put(
+            .get(
             `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile/address`,
             {
                 headers: {
@@ -29,7 +29,7 @@ const EditAddressForm = () => {
             })
             .then((res) => {
             setAddress(res.data.address);
-            
+                        
             })
             .catch((err) => {
                 console.log(err);
@@ -44,6 +44,7 @@ const EditAddressForm = () => {
 
     const onSubmitForm = (event) => {
         createAddress(form, clearFields, history, address)
+        goToProfile(history)
         
     }
 

@@ -4,7 +4,7 @@ import useForm from "../../../Hooks/useForm"
 import TextField  from "@material-ui/core/TextField";
 import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
 import { useHistory}  from 'react-router-dom';
-import {createAddress} from "../../../Services/addressRequest"
+import {profileRequest} from "../../../Services/profileRequest"
 import useProtectedPage from "../../../Hooks/useProtectedPage";
 import { goToProfile } from "../../../Routes/coordinator";
 
@@ -28,6 +28,7 @@ const EditProfileForm = () => {
             })
             .then((res) => {
             setProfile(res.data.user);
+            
             })
             .catch((err) => {
                 console.log(err);
@@ -41,7 +42,8 @@ const EditProfileForm = () => {
 
 
     const onSubmitForm = (event) => {
-        createAddress(form, clearFields, history, profile)
+        profileRequest(form, clearFields, history, profile)
+        goToProfile(history)
     }
 
     const maskedCPF = (cpf) => {
@@ -93,10 +95,7 @@ const EditProfileForm = () => {
                 />
                 </Input_nolocus>
                 
-                <SignUpButton onClick={() => goToProfile(history)}
-            type={"submit"}
-            fullWidth
-            variant={"text"}>
+                <SignUpButton>
                     Salvar
                 </SignUpButton>
                 
