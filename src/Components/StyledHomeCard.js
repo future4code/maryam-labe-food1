@@ -16,7 +16,7 @@ export const Card = styled.div`
 `
 
 export const CardImage = styled.img`
-    width: 328px;
+    width: 100%;
     height: 120px;
     margin: 0 0 12px;
     object-fit: contain;
@@ -38,7 +38,7 @@ export const Name = styled.h3`
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.39px;
-    color: #e8222e;
+    color: #e86e5a;
 `
 
 export const Delivery = styled.div`
