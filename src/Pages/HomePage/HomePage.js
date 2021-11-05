@@ -45,8 +45,6 @@ const HomePage = () => {
         getRestaurants()
     }, [flagRestaurants])
 
-    console.log(restaurants)
-
     const filtersButtons = (filter, turnsOff) => {
 
         if (filter === 'arabe') {
