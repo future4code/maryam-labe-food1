@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import useForm from "../../../Hooks/useForm"
 import TextField  from "@material-ui/core/TextField";
 import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
@@ -10,16 +11,37 @@ import { goToProfile } from "../../../Routes/coordinator";
 
 
 const EditProfileForm = () => {
-    // useProtectedPage();
-    const[form,onChange,clearFields] = useForm({street:"", number:"", neighbourhood:"", city:"", state:"", complement:""})
+    useProtectedPage();
+    const [profile, setProfile] = useState({});
+    const[form,onChange,clearFields] = useForm({name:"", email:"", cpf:""})
     const history = useHistory();
 
 
+    const getProfile = () => {
+        axios
+            .get(
+            `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile`,
+            {
+                headers: {
+                    auth: window.localStorage.getItem("token"),
+                },
+            })
+            .then((res) => {
+            setProfile(res.data.user);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        };
+
+
+    useEffect(() => {
+        getProfile();
+    }, []);
 
 
     const onSubmitForm = (event) => {
-        createAddress(form, clearFields, history)
-    
+        createAddress(form, clearFields, history, profile)
     }
 
     const maskedCPF = (cpf) => {
@@ -36,7 +58,7 @@ const EditProfileForm = () => {
                         name={"name"}
                         value={form.name}
                         onChange={onChange}
-                        label={"Nome"} 
+                        label={profile && profile.name} 
                         variant={"outlined"}
                         fullWidth
                         type={"text"}
@@ -49,7 +71,7 @@ const EditProfileForm = () => {
                         name={"email"}
                         value={form.email}
                         onChange={onChange}
-                        label={"E-mail"} 
+                        label={profile && profile.email}  
                         variant={"outlined"}
                         fullWidth
                         type={"email"}
@@ -62,7 +84,7 @@ const EditProfileForm = () => {
                     name={"cpf"}
                     value={form.cpf}
                     onChange={(event)=> onChange(event, maskedCPF)}
-                    label={"CPF"} 
+                    label={profile && profile.cpf}  
                     variant={"outlined"}
                     fullWidth
                     type={"text"}
