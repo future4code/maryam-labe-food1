@@ -19,11 +19,12 @@ const EditAddressForm = () => {
 
     const getAddress = () => {
         axios
-            .get(
+            .put(
             `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile/address`,
             {
                 headers: {
                     auth: window.localStorage.getItem("token"),
+                    
                 },
             })
             .then((res) => {
@@ -43,9 +44,10 @@ const EditAddressForm = () => {
 
     const onSubmitForm = (event) => {
         createAddress(form, clearFields, history, address)
+        
     }
 
-    
+        
 
     return (
         <InputsContainer>
@@ -122,10 +124,7 @@ const EditAddressForm = () => {
                     /> 
                 </Input_nolocus>
 
-                <SignUpButton onClick={() => goToProfile(history)}
-            type={"submit"}
-            fullWidth
-            variant={"text"}>
+                <SignUpButton>
                     Salvar
                 </SignUpButton>
                 

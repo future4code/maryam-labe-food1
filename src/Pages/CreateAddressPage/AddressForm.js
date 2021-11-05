@@ -10,17 +10,21 @@ import { goToLogin } from "../../Routes/coordinator";
 
 
 const AddressForm = () => {
-    //useProtectedPage();
-    const[form,onChange,clearFields] = useForm({street:"", number:"", neighbourhood:"", city:"", state:"", complement:""})
+    useProtectedPage();
+    const[form,onChange,clearFields] = useForm({street:"", number:"",
+     neighbourhood:"", city:"", state:"", complement:""})
     const history = useHistory();
 
 
 
 
     const onSubmitForm = (event) => {
+        event.preventDefault();
         createAddress(form, clearFields, history)
     
     }
+
+    
 
 
     return (
@@ -98,10 +102,7 @@ const AddressForm = () => {
                     /> 
                 </Input_nolocus>
                 
-                <SignUpButton onClick={() => goToLogin(history)}
-            type={"submit"}
-            fullWidth
-            variant={"text"}>
+                <SignUpButton>
                     Salvar
                 </SignUpButton>
                 
