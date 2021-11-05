@@ -24,11 +24,12 @@ const EditAddressForm = () => {
             {
                 headers: {
                     auth: window.localStorage.getItem("token"),
+                    
                 },
             })
             .then((res) => {
             setAddress(res.data.address);
-            
+                        
             })
             .catch((err) => {
                 console.log(err);
@@ -43,9 +44,11 @@ const EditAddressForm = () => {
 
     const onSubmitForm = (event) => {
         createAddress(form, clearFields, history, address)
+        goToProfile(history)
+        
     }
 
-    
+        
 
     return (
         <InputsContainer>
@@ -59,7 +62,6 @@ const EditAddressForm = () => {
                         label={address && address.street}
                         variant={"outlined"}
                         placeholder={"Rua/Av."}
-                       
                         required                
                     />           
                 </Input_nolocus>  
@@ -123,10 +125,7 @@ const EditAddressForm = () => {
                     /> 
                 </Input_nolocus>
 
-                <SignUpButton onClick={() => goToProfile(history)}
-            type={"submit"}
-            fullWidth
-            variant={"text"}>
+                <SignUpButton>
                     Salvar
                 </SignUpButton>
                 
