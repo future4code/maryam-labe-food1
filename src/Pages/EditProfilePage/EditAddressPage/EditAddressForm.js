@@ -1,16 +1,16 @@
 import React from "react"
-import useForm from "../../Hooks/useForm"
+import useForm from "../../../Hooks/useForm"
 import TextField  from "@material-ui/core/TextField";
 import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
 import { useHistory}  from 'react-router-dom';
-import {createAddress} from "../../Services/addressRequest"
-import useProtectedPage from "../../Hooks/useProtectedPage";
-import { goToLogin } from "../../Routes/coordinator";
+import {createAddress} from "../../../Services/addressRequest"
+import useProtectedPage from "../../../Hooks/useProtectedPage";
+import { goToProfile } from "../../../Routes/coordinator";
 
 
 
-const AddressForm = () => {
-    //useProtectedPage();
+const EditAddressForm = () => {
+    useProtectedPage();
     const[form,onChange,clearFields] = useForm({street:"", number:"", neighbourhood:"", city:"", state:"", complement:""})
     const history = useHistory();
 
@@ -92,7 +92,7 @@ const AddressForm = () => {
                     /> 
                 </Input_nolocus>
 
-                <SignUpButton onClick={() => goToLogin(history)}
+                <SignUpButton onClick={() => goToProfile(history)}
             type={"submit"}
             fullWidth
             variant={"text"}>
@@ -106,4 +106,4 @@ const AddressForm = () => {
 
 
 
-export default AddressForm;
+export default EditAddressForm;

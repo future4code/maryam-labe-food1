@@ -11,6 +11,7 @@ import { VisibilityOff } from '@material-ui/icons';
 import { OutlinedInput } from '@material-ui/core';
 import { InputLabel } from '@material-ui/core';
 import { FormControl } from '@material-ui/core';
+import {goToCreateAddress} from "../../Routes/coordinator"
 
 const SignUpForm = () => {
     const [form, onChange, clearFields] = useForm({name:"", email: "", cpf:"", password: ""});
@@ -40,6 +41,11 @@ const SignUpForm = () => {
             setHelperText("Deve ser a mesma que a anterior.");
             setInputError(true);
         };
+    };
+
+    const maskedCPF = (cpf) => {
+        let maskedValue = cpf.replace(/\D/g, '').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})/, '$1-$2').replace(/(-\d{2})\d+?$/, '$1')
+        return maskedValue;
     };
 
     return (
@@ -72,7 +78,7 @@ const SignUpForm = () => {
                 <TextField
                     name={"cpf"}
                     value={form.cpf}
-                    onChange={onChange}
+                    onChange={(event)=> onChange(event, maskedCPF)}
                     label={"CPF"} 
                     variant={"outlined"}
                     fullWidth
@@ -82,27 +88,28 @@ const SignUpForm = () => {
                     placeholder={"000.000.000-00"}
                 />
                 <FormControl
-                required
-                name={"password"}
-                variant={"outlined"} 
-                fullWidth
-                margin={"normal"}
-                value={correctPassword}
-                onChange={(e) => setCorrectPassword(e)}>
+                    required
+                    variant={"outlined"} 
+                    fullWidth
+                    margin={"normal"}
+                >
                 <InputLabel htmlFor="outlined-adornment-password">
-                Senha
+                    Senha
                 </InputLabel>
                 <OutlinedInput
+                    name={"password"}
+                    value={correctPassword}
+                    onChange={(event) => setCorrectPassword(event.target.value)}
                     id="outlined-adornment-password"
                     type={values ? 'text' : 'password'}
                     placeholder={"Mínimo 6 caracteres"}
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end"
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
                             >
                             {values ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
@@ -114,16 +121,17 @@ const SignUpForm = () => {
             <FormControl
                 error={inputError}
                 required
-                name={"confirmPassword"}
                 variant={"outlined"} 
                 fullWidth
                 margin={"normal"}
-                value={confirmPassword}
-                onChange={setConfirmPassword}>
+            >
                 <InputLabel htmlFor="outlined-adornment-password">
-                Confirmar
+                    Confirmar
                 </InputLabel>
                 <OutlinedInput
+                    name={"confirmPassword"}
+                    value={confirmPassword}
+                    onChange={(event) => setConfirmPassword(event.target.value)}
                     id="outlined-adornment-password"
                     type={values ? 'text' : 'password'}
                     placeholder={"Confirme a senha anterior"}
@@ -142,7 +150,10 @@ const SignUpForm = () => {
                 label={"Password"}/>
                 <FormHelperText>{helperText}</FormHelperText>
             </FormControl>
-            <SignUpButton>
+            <SignUpButton onClick={() => goToCreateAddress(history)}
+            type={"submit"}
+            fullWidth
+            variant={"text"}>
                 Criar
             </SignUpButton>
             </form>

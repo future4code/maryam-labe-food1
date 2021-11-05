@@ -20,7 +20,7 @@ const LoginForm = () => {
 
     const handleClickShowPassword = () => {
         setValues(!values);
-    }
+    };
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -47,33 +47,34 @@ const LoginForm = () => {
                     placeholder={"email@email.com"}
                 />
                 <FormControl
-                required
-                name={"password"}
-                variant={"outlined"} 
-                fullWidth
-                margin={"normal"}
-                value={form.password}
-                onChange={onChange}>
-                <InputLabel htmlFor="outlined-adornment-password">
-                Senha
-                </InputLabel>
-                <OutlinedInput
-                    id="outlined-adornment-password"
-                    type={values ? 'text' : 'password'}
-                    placeholder={"Mínimo 6 caracteres"}
-                    endAdornment={
-                        <InputAdornment position="end">
-                            <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end"
-                            >
-                            {values ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                    }
-                label={"Password"}
+                    required
+                    variant={"outlined"} 
+                    fullWidth
+                    margin={"normal"}
+                >
+                    <InputLabel htmlFor="outlined-adornment-password">
+                        Senha
+                    </InputLabel>
+                    <OutlinedInput
+                        onChange={onChange}
+                        value={form.password}
+                        name={"password"}
+                        id="outlined-adornment-password"
+                        type={values ? 'text' : 'password'}
+                        placeholder={"Mínimo 6 caracteres"}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                {values ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                    label={"Password"}
                 />
             </FormControl>
                 <LoginButton>
