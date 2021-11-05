@@ -29,7 +29,7 @@ const SignUpForm = () => {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
-   
+    
     const [helperText, setHelperText] = useState("");
 
     const onSubmitForm = (event) => {

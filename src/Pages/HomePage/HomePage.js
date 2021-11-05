@@ -3,7 +3,6 @@ import axios from "axios";
 import useForm from "../../Hooks/useForm";
 import useProtectedPage from "../../Hooks/useProtectedPage";
 import HomeCard from "../../Components/HomeCard";
-<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
 import { goToHome, goToCart, goToProfile } from "../../Routes/coordinator";
 import { HomeContainer, Title, Search, Filters, FiltersOff, FiltersOn, Feed, MenuTab } from "./styled";
@@ -11,19 +10,13 @@ import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import homepage from "../../Assets/assets_MyProfilePage/homepage.svg";
 import shoppingcart from "../../Assets/assets_MyProfilePage/shoppingcart.svg";
 import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
-=======
-import { HomeContainer, Title, Search, Filters, FiltersOff, FiltersOn, Feed } from "./styled";
->>>>>>> 3915cfcfc5301cb6ce08f5347a063618cf963858
 
 const HomePage = () => {
 
-<<<<<<< HEAD
     // useProtectedPage()
 
     const history = useHistory()
 
-=======
->>>>>>> 3915cfcfc5301cb6ce08f5347a063618cf963858
     const [restaurants, setRestaurants] = useState([])
     const [allRestaurants, setAllRestaurants] = useState([])
     const [flagRestaurants, setFlagRestaurants] = useState(false)
