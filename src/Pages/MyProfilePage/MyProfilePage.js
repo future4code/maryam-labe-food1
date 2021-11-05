@@ -4,7 +4,6 @@ import axios from "axios";
 import {
   MainContainer,
   TextP,
-  MenuTab,
   HeaderContainer,
   ContainerProfile,
   ContainerAdress,
@@ -17,20 +16,10 @@ import {
   EditButton,
   TextAdressTitle,
 } from "./styled";
-import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
-import {
-  goToHome,
-  goToCart,
-  goToProfile,
-  goToEditProfile,
-  goToCreateAddress,
-  goToEditAddress,
-} from "../../Routes/coordinator";
-import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
-import homepage from "../../Assets/assets_MyProfilePage/homepage.svg";
-import shoppingcart from "../../Assets/assets_MyProfilePage/shoppingcart.svg";
+import { goToEditProfile, goToEditAddress } from "../../Routes/coordinator";
 import edit from "../../Assets/assets_MyProfilePage/edit.svg";
 import useProtectedPage from "../../Hooks/useProtectedPage";
+import Footer from "../../Components/Footer/Footer";
 
 const MyProfilePage = () => {
   useProtectedPage();
@@ -133,22 +122,7 @@ const MyProfilePage = () => {
       ) : (
         <p>Você não realizou nenhum pedido</p>
       )}
-      <MenuTab>
-        <BottomNavigation showLabels>
-          <BottomNavigationAction
-            onClick={() => goToHome(history)}
-            icon={<img src={homepage} alt="" />}
-          />
-          <BottomNavigationAction
-            onClick={() => goToCart(history)}
-            icon={<img src={shoppingcart} alt="" />}
-          />
-          <BottomNavigationAction
-            onClick={() => goToProfile(history)}
-            icon={<img src={avatar} alt="" />}
-          />
-        </BottomNavigation>
-      </MenuTab>
+      <Footer />
     </MainContainer>
   );
 };
