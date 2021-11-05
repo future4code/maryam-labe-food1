@@ -40,7 +40,11 @@ O React Router é uma biblioteca padrão para roteamento no React. Ele permite a
 ## Contato
 
 Érico Marshall - [Github](https://github.com/egMarshall) - **ericogmarshall1@gmail.com**
+
 Glauber Apolinário - [Github](https://github.com/GlauberApolinario) - **glauber.apolinario@yahoo.com.br**
+
 Guilherme Feijó - [Github](https://github.com/gtfeijo) - **gtfeijo@gmail.com**
+
 Luiz Ricardo da Silva - [Github](https://github.com/luizricardodasilva) - **luiz.dug@gmail.com**
+
 Mariana Stamatakis - [Github](https://github.com/MarianaStamatakis) - **mst.nanasta@gmail.com**
