@@ -10,18 +10,27 @@ import useProtectedPage from '../../Hooks/useProtectedPage';
 const RestaurantPage = () => {
     useProtectedPage();
 
-    localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkEwMDVtSEJmeVNrdDdPTjBITGFwIiwibmFtZSI6IkFzdHJvZGV2IiwiZW1haWwiOiJhc3Ryb2RldkBmdXR1cmU0LmNvbSIsImNwZiI6IjMzMy44ODguNjY2LTQ0IiwiaGFzQWRkcmVzcyI6dHJ1ZSwiYWRkcmVzcyI6IlJ1YSBQcmF0ZXMsIDYxMyAtIEJvbSBSZXRpcm8iLCJpYXQiOjE2MzU3ODYwMjJ9.c3DrQNxkx04oHnK17zfWApScHr6uqZayrPIxKN7RXcA')
     const params = useParams()
 
     const history = useHistory()
     const newCart = []
     const {cart, setCart} = useContext(MyContext)
-    // setCart("teste")
     console.log("Carrinho", cart)
 
-    const addCart = (product) => {
-        newCart.push(product)
-        
+    const addCart = (productToAdd) => {
+        const newCart = [...cart]
+        let aux = false
+        for (let i = 0; i<newCart.length; i++){
+            if(newCart[i].id === productToAdd.id){
+                newCart[i].qauntity += 1
+                aux = true
+                break
+            }
+        }
+        if(!aux)
+        newCart.push({...productToAdd, quantity: 1})
+        setCart(newCart)
+        localStorage.setItem("cart", JSON.stringify(newCart))
     }
     const goCart = () => {
         if (newCart.length !== 0){

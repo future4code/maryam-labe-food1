@@ -6,7 +6,8 @@ export const goToHome = (history) => {
   history.push("/home");
 };
 
-export const goToRestaurant = (history, id) => {
+export const goToRestaurant = (history, id, restaurant) => {
+  localStorage.setItem("Restaurant", JSON.stringify(restaurant))
   console.log("param", id);
   history.push(`/restaurante/${id}`);
 };

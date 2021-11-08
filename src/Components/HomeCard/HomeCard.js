@@ -8,7 +8,7 @@ const HomeCard = (props) => {
     const history = useHistory()
     return(
         <CardContainer>
-            <Card onClick={() => goToRestaurant (history, props.restId)}>
+            <Card onClick={() => goToRestaurant (history, props.restId, props)}>
                 <CardImage src={props.logoUrl} />
                 <CardDetails>
                     <Name>{props.name}</Name>

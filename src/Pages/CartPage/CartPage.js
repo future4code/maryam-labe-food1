@@ -11,16 +11,17 @@ const CartPage = () => {
     const history = useHistory()
     const {cart, setCart} = useContext(MyContext)
     const newCart = JSON.parse(localStorage.getItem("cart"));
-    const rest = localStorage.getItem("restaurante")
+    const restaurant = JSON.parse(localStorage.getItem("Restaurant"))
     const productsCart = newCart && newCart.map((product)=>{
         return(
-            <ProductContainer>
+            <ProductContainer key={product.id}>
                 <Logo src={product.photoUrl}/>
                 <DetailsContainer>
                     {product.name}<hr></hr>
                     
                     {product.description}<hr></hr>
-                    R$ {product.price},00
+                    R$ {product.price.toFixed(2)}
+                    Quantidade {product.quantity}
                 </DetailsContainer>
                 
             </ProductContainer>
@@ -31,14 +32,20 @@ const CartPage = () => {
         const order = newCart.map((product) => {
             return(
                 {id: product.id, 
-                quantity: "1"} 
+                quantity: product.quantity} 
             )
             
         })
         const newOrder = {products: order,paymentMethod:"creditcard"}
-        postOrder(newOrder, rest)
+        postOrder(newOrder, restaurant.id)
 
     }
+
+    let total = 0
+    for (let product of cart){
+        total = Number(total + (product.price * product.quantity))
+    }
+    total += restaurant.shipping
     
 
     return (
@@ -49,6 +56,7 @@ const CartPage = () => {
             <RestaurantContainer>
             
             {productsCart}
+            Total = R${total.toFixed(2)}
             </RestaurantContainer>
             <button onClick={()=>placeOrder()}>Fazer Pedido</button>
         </ScreenContainer>
