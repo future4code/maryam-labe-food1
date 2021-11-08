@@ -1,5 +1,5 @@
 import axios from "axios";
-import { goToHome } from "../Routes/coordinator";
+import { goToCreateAddress, goToHome } from "../Routes/coordinator";
 
 export const login = (body, clearFields, history) => {
     axios
@@ -7,11 +7,17 @@ export const login = (body, clearFields, history) => {
     .then((response) => {
         localStorage.setItem("token", response.data.token);
         clearFields();
-        goToHome(history);
+
+        if (response.data.hasAdress) {
+            goToHome(history);
+        } else {
+            goToCreateAddress(history);
+        }; 
     })
     .catch((error) => {
         alert("Erro ao fazer o login, tente novamente!");
         console.log(error.response.data.message);
+        console.log(body)
     })
 };
 
@@ -21,7 +27,7 @@ export const signUp = (body, clearFields, history) => {
     .then((response) => {
         localStorage.setItem("token", response.data.token);
         clearFields();
-        goToHome(history);
+        goToCreateAddress(history);
     })
     .catch((error) => {
         alert("Erro ao fazer o login, tente novamente!");

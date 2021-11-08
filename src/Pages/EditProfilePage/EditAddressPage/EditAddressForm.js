@@ -1,56 +1,79 @@
-import React from "react"
-import useForm from "../../Hooks/useForm"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import useForm from "../../../Hooks/useForm"
 import TextField  from "@material-ui/core/TextField";
 import { Input_nolocus, SignUpButton, InputsContainer} from "./styled";
 import { useHistory}  from 'react-router-dom';
-import {createAddress} from "../../Services/addressRequest"
-import useProtectedPage from "../../Hooks/useProtectedPage";
-import { goToHome } from "../../Routes/coordinator";
+import {createAddress} from "../../../Services/addressRequest"
+import useProtectedPage from "../../../Hooks/useProtectedPage";
+import { goToProfile } from "../../../Routes/coordinator";
 
 
 
-const AddressForm = () => {
-    useProtectedPage();
-    const[form,onChange,clearFields] = useForm({street:"", number:"",
-     neighbourhood:"", city:"", state:"", complement:""})
+const EditAddressForm = () => {
+    useProtectedPage();    
+    const [address, setAddress] = useState({});
+    const[form,onChange,clearFields] = useForm({street: "" , number:[], neighbourhood:"", city:"", state:"", complement:""})
     const history = useHistory();
+    
 
+    const getAddress = () => {
+        axios
+            .get(
+            `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile/address`,
+            {
+                headers: {
+                    auth: window.localStorage.getItem("token"),
+                    
+                },
+            })
+            .then((res) => {
+            setAddress(res.data.address);
+                        
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+    
 
+    useEffect(() => {
+        getAddress();
+    }, []);
 
 
     const onSubmitForm = (event) => {
-        event.preventDefault();
-        createAddress(form, clearFields, history)
-        goToHome(history);
+        createAddress(form, clearFields, history, address)
+        goToProfile(history)
+        
     }
 
-    
-
+        
 
     return (
         <InputsContainer>
             <form onSubmit={onSubmitForm}>
-            <Input_nolocus>                
+                <Input_nolocus>                
                     <TextField
                         name={"street"}
                         fullWidth
                         value= {form.street}               
                         onChange={onChange}
-                        label={"Logradouro"}
+                        label={address && address.street}
                         variant={"outlined"}
                         placeholder={"Rua/Av."}
                         required                
-                    />              
+                    />           
                 </Input_nolocus>  
                 <Input_nolocus>           
                     <TextField
                         name={"number"}
                         value={form.number}
                         onChange={onChange}
-                        label={"Numero"}
+                        label={address && address.number}
                         variant={"outlined"}
+                        placeholder={"Número"}
                         fullWidth   
-                        placeholder={"Numero"}                 
                         required  
                     /> 
                 </Input_nolocus>
@@ -59,7 +82,7 @@ const AddressForm = () => {
                         name={"complement"}
                         value={form.complement}
                         onChange={onChange}
-                        label={"Complemento"}
+                        label={address && address.complement}
                         variant={"outlined"}
                         placeholder={"Apto./Bloco"}
                         fullWidth
@@ -70,7 +93,7 @@ const AddressForm = () => {
                         name={"neighbourhood"}
                         value={form.neighbourhood}
                         onChange={onChange}
-                        label={"Bairro"}
+                        label={address && address.neighbourhood}
                         variant={"outlined"}
                         placeholder={"Bairro"}
                         fullWidth
@@ -82,7 +105,7 @@ const AddressForm = () => {
                         name={"city"}
                         value={form.city}
                         onChange={onChange}
-                        label={"Cidade"}
+                        label={address && address.city}
                         variant={"outlined"}
                         placeholder={"Cidade"}
                         fullWidth
@@ -94,14 +117,14 @@ const AddressForm = () => {
                         name={"state"}
                         value={form.state}
                         onChange={onChange}
-                        label={"Estado"}
+                        label={address && address.state}
                         variant={"outlined"}
                         placeholder={"Estado"}
                         fullWidth
                         required
                     /> 
                 </Input_nolocus>
-                
+
                 <SignUpButton>
                     Salvar
                 </SignUpButton>
@@ -113,4 +136,4 @@ const AddressForm = () => {
 
 
 
-export default AddressForm;
+export default EditAddressForm;

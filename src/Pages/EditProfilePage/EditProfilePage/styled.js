@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const CadastroDeEndereco = styled.div`
-    width: 360px;
-    height: 640px;
-    padding: 0 0 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 
@@ -60,7 +60,13 @@ export const BackButton = styled.img`
     height: 24px;
     margin: 10px 54px 10px 16px;
     object-fit: contain;
-    
+    /* width: 23px;
+    height: 24px;
+    margin: auto 321px 0 16px;
+    object-fit: contain;
+    :hover {
+        cursor: pointer;
+    } */
 `
 
 export const Header = styled.header`

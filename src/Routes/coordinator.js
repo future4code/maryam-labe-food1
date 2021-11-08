@@ -1,36 +1,40 @@
 export const goToLogin = (history) => {
-    history.push("/login");
+  history.push("/login");
 };
 
 export const goToHome = (history) => {
-    history.push("/");
+  history.push("/home");
 };
 
 export const goToRestaurant = (history, id) => {
-    console.log("param", id)
-    history.push(`/restaurante/${id}`);
+  console.log("param", id);
+  history.push(`/restaurante/${id}`);
 };
 
 export const goToSignUp = (history) => {
-    history.push("/cadastro");
+  history.push("/cadastro");
 };
 
 export const goToCart = (history) => {
-    history.push("/carrinho");
+  history.push("/carrinho");
 };
 
 export const goToProfile = (history) => {
-    history.push("/perfil/");
+  history.push("/perfil/");
 };
 
 export const goToEditProfile = (history) => {
-    history.push("/perfil/editar-perfil");
-}
+  history.push("/perfil/editar-perfil");
+};
 
 export const goToEditAddress = (history) => {
-        history.push("/perfil/editar-endereco");
+  history.push("/perfil/editar-endereco");
 };
 
 export const goToCreateAddress = (history) => {
-    history.push("/endereco");
+  history.push("/endereco");
+};
+
+export const goToSplashScreen = (history) => {
+  history.push("/");
 };

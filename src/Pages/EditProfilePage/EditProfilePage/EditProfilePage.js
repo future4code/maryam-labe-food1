@@ -1,5 +1,5 @@
 import React from "react"
-import EditAddressForm from "./EditAddressForm";
+import EditProfileForm from "./EditProfileForm";
 import { CadastroDeEndereco, Title, Text, Header, BackButton} from "./styled";
 import { useHistory } from 'react-router-dom';
 import useProtectedPage from '../../../Hooks/useProtectedPage.js';
@@ -7,7 +7,9 @@ import back from "../../../Assets/assets_Sign Up/back.png";
 import { goToProfile } from "../../../Routes/coordinator";
 
 
-const EditAddressPage = () => {
+
+const EditProfilePage = () => {
+
     useProtectedPage();
     const history = useHistory();
     
@@ -17,12 +19,13 @@ const EditAddressPage = () => {
             <Header>
                 <BackButton src={back} onClick={() => goToProfile(history)} />
                 <Title>
-                <Text>Endereço</Text>
+                <Text>Editar</Text>
                 </Title>
             </Header>
                 
-            <EditAddressForm/>
+            <EditProfileForm/>
         </CadastroDeEndereco>
     );
 }
-export default EditAddressPage;
+
+export default EditProfilePage;

@@ -18,13 +18,6 @@ export const HeaderContainer = styled.div`
   justify-content: center;
 `;
 
-export const MenuTab = styled.div`
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #b8b8b8;
-`;
-
 export const TextP = styled.p`
   font-weight: 500;
   padding: 0 16px;

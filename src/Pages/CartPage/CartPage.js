@@ -3,9 +3,11 @@ import { useHistory } from 'react-router-dom';
 import MyContext from '../../Contexts/myContext';
 import { ScreenContainer,Logo, ProductContainer, DetailsContainer, RestaurantLogo, RestaurantContainer } from './styled';
 import {postOrder} from '../../Services/restaurant.js'
+import useProtectedPage from '../../Hooks/useProtectedPage';
 
 
 const CartPage = () => {
+    useProtectedPage()
     const history = useHistory()
     const {cart, setCart} = useContext(MyContext)
     const newCart = JSON.parse(localStorage.getItem("cart"));

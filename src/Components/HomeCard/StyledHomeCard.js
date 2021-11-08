@@ -1,44 +1,44 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-    width: 22.5rem;
-    height: 12.25rem;
-    margin: 3.125rem 0 0;
-    padding: 0.5rem 1rem 0;
+    width: 360px;
+    height: 196px;
+    margin: 5px 0 50px;
+    padding: 8px 16px 0;
 `
+
 export const Card = styled.div`
-    width: 20.5rem;
-    height: 11.75rem;
-    padding: 0 0 1rem;
-    border: solid 1px #b8b8b8;
+    width: 328px;
+    height: 188px;
+    padding: 0 0 16px;
     border-radius: 8px;
+    border: solid 1px #b8b8b8;
 `
 
 export const CardImage = styled.img`
-    width: 20.5rem;
-    height: 7.5rem;
-    margin: 0 0 0.75rem;
+    width: 100%;
+    height: 120px;
+    margin: 0 0 12px;
     object-fit: contain;
 `
 
 export const CardDetails = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 `
 
 export const Name = styled.h3`
-    width: 18.5rem;
-    height: 1.125rem;
-    margin: 0.75rem 1rem 0.25rem;
+    width: 296px;
+    height: 18px;
+    margin: 12px 16px 4px;
     font-family: Roboto;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.39px;
-    color: #e8222e;
+    color: #e86e5a;
 `
 
 export const Delivery = styled.div`
@@ -47,11 +47,11 @@ export const Delivery = styled.div`
 `
 
 export const Time = styled.p`
-    width: 9.25rem;
-    height: 1.125rem;
-    margin: 0.25rem 0.5rem 0 1rem;
+    width: 148px;
+    height: 18px;
+    margin: 4px 8px 0 16px;
     font-family: Roboto;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -61,11 +61,11 @@ export const Time = styled.p`
 `
 
 export const Freight = styled.p`
-    width: 8.75rem;
-    height: 1.125rem;
-    margin: 0.25rem 1rem 0 0.5rem;
+    width: 140px;
+    height: 18px;
+    margin: 4px 16px 0 8px;
     font-family: Roboto;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;

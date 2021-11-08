@@ -4,7 +4,6 @@ import axios from "axios";
 import {
   MainContainer,
   TextP,
-  MenuTab,
   HeaderContainer,
   ContainerProfile,
   ContainerAdress,
@@ -17,19 +16,14 @@ import {
   EditButton,
   TextAdressTitle,
 } from "./styled";
-import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
-import {
-  goToHome,
-  goToCart,
-  goToProfile,
-  goToEditProfile,
-} from "../../Routes/coordinator";
-import avatar from "../../Assets/assets_MyProfilePage/avatar.svg";
-import homepage from "../../Assets/assets_MyProfilePage/homepage.svg";
-import shoppingcart from "../../Assets/assets_MyProfilePage/shoppingcart.svg";
+import { goToEditProfile, goToEditAddress } from "../../Routes/coordinator";
 import edit from "../../Assets/assets_MyProfilePage/edit.svg";
+import useProtectedPage from "../../Hooks/useProtectedPage";
+import Footer from "../../Components/Footer/Footer";
+import { profileRequest } from "../../Services/profileRequest";
 
 const MyProfilePage = () => {
+  useProtectedPage();
   const history = useHistory();
   const [profile, setProfile] = useState({});
   const [orderHistory, setOrderHistory] = useState([]);
@@ -37,7 +31,7 @@ const MyProfilePage = () => {
   const getProfile = () => {
     axios
       .get(
-        `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile`,
+        `https://us-central1-missao-newton.cloudfunctions.net/rappi4A/profile/`,
         {
           headers: {
             auth: window.localStorage.getItem("token"),
@@ -46,6 +40,7 @@ const MyProfilePage = () => {
       )
       .then((res) => {
         setProfile(res.data.user);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -72,8 +67,9 @@ const MyProfilePage = () => {
   };
 
   useEffect(() => {
-    getProfile();
+    
     getOrderHistory();
+    getProfile();
   }, []);
 
   const orderComponents = orderHistory.map((order) => {
@@ -116,7 +112,7 @@ const MyProfilePage = () => {
           <TextP>{profile && profile.address}</TextP>
         </div>
         <div>
-          <EditButton onClick={() => goToEditProfile(history)}>
+          <EditButton onClick={() => goToEditAddress(history)}>
             <img src={edit} />
           </EditButton>
         </div>
@@ -129,22 +125,7 @@ const MyProfilePage = () => {
       ) : (
         <p>Você não realizou nenhum pedido</p>
       )}
-      <MenuTab>
-        <BottomNavigation showLabels>
-          <BottomNavigationAction
-            onClick={() => goToHome(history)}
-            icon={<img src={homepage} alt="" />}
-          />
-          <BottomNavigationAction
-            onClick={() => goToCart(history)}
-            icon={<img src={shoppingcart} alt="" />}
-          />
-          <BottomNavigationAction
-            onClick={() => goToProfile(history)}
-            icon={<img src={avatar} alt="" />}
-          />
-        </BottomNavigation>
-      </MenuTab>
+      <Footer />
     </MainContainer>
   );
 };
