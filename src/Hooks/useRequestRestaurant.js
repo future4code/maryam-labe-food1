@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const useRequestRestaurant = (initialData, url) => {
     const [data, setData] = useState(initialData)
-
+    console.log("request",url)
     useEffect(() => {
         axios.get (url, {
             headers: {

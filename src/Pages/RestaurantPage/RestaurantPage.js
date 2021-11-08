@@ -15,14 +15,13 @@ const RestaurantPage = () => {
     const history = useHistory()
     const newCart = []
     const {cart, setCart} = useContext(MyContext)
-    console.log("Carrinho", cart)
 
     const addCart = (productToAdd) => {
         const newCart = [...cart]
         let aux = false
         for (let i = 0; i<newCart.length; i++){
             if(newCart[i].id === productToAdd.id){
-                newCart[i].qauntity += 1
+                newCart[i].quantity += 1
                 aux = true
                 break
             }
@@ -43,9 +42,6 @@ const RestaurantPage = () => {
     }
 
     const details = useRequestRestaurant([], `${BASE_URL}/restaurants/${params.id}`)
-
-
-    console.log("detalhes", details)
 
     const products = details.products && details.products.map((product)=>{
         return(
