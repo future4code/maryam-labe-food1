@@ -33,7 +33,7 @@ O React Router é uma biblioteca padrão para roteamento no React. Ele permite a
 
 ### Deploy em Surge
 
-<a href="https://nondescript-acoustics.surge.sh" target="blank"> Rappi4</a>
+<a href="https://maryam-labefood1.surge.sh/" target="blank"> Rappi4</a>
 
 <!-- CONTACT -->
 
