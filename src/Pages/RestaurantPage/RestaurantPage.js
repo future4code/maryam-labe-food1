@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import  BASE_URL  from '../../Constants/urls'
 import MyContext from '../../Contexts/myContext';
-import {useRequestDataRestaurant} from '../../Hooks/useRequestData';
+import useRequestRestaurant from '../../Hooks/useRequestRestaurant';
 import { goToCart } from '../../Routes/coordinator';
 import { ScreenContainer,Logo, ProductContainer, DetailsContainer, RestaurantLogo, RestaurantContainer } from './styled';
 
@@ -31,7 +31,7 @@ const RestaurantPage = () => {
         goToCart(history)
     }
 
-    const details = useRequestDataRestaurant([], `${BASE_URL}/restaurants/${params.id}`)
+    const details = useRequestRestaurant([], `${BASE_URL}/restaurants/${params.id}`)
     const products = details.products && details.products.map((product)=>{
         return(
             <ProductContainer>
