@@ -2,6 +2,7 @@ import React, {useState, useLayoutEffect} from "react";
 import axios from "axios";
 import useProtectedPage from "../../Hooks/useProtectedPage";
 import useForm from "../../Hooks/useForm";
+import Loading from "../../Components/Loading/Loading";
 import HomeCard from "../../Components/HomeCard/HomeCard";
 import Footer from "../../Components/Footer/Footer";
 import { HomeContainer, Title, FilterName, Search, Filters, FiltersOff, FiltersOn, Feed } from "./styled";
@@ -257,6 +258,7 @@ const HomePage = () => {
                 {(sobremesaFilter) ? (<FiltersOn onClick={() => filtersButtons('sobremesa', true)} >Sobremesa</FiltersOn>) : (<FiltersOff onClick={() => filtersButtons('sobremesa', false)} >Sobremesa</FiltersOff>)}                    
             </Filters>
             <Feed>
+                {restaurants.length > 0 ? listRestaurants : <Loading />}
                 {restaurants.length > 0 ? (listRestaurants)
                 :
                 <h1>Desculpa, não encontramos!</h1>}
