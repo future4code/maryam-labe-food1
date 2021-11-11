@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!--
+*** Obrigado por estar vendo o nosso README. Se você tiver alguma sugestão
+*** que possa melhorá-lo ainda mais dê um fork no repositório e crie uma Pull
+*** Request ou abra uma Issue com a tag "sugestão".
+*** Obrigado novamente! Agora vamos rodar esse projeto incrível :D
+-->
 
-## Available Scripts
+<!-- PROJECT SHIELDS -->
 
-In the project directory, you can run:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
 
-### `npm start`
+  <h3 align="center">Projeto Rappi4 Frontend Labenu</h3>
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Sobre o Projeto
 
-### `npm test`
+O projeto consiste em uma aplicação web baseada em um aplicativo de delivery de comida. O design foi feito e cedido pela designer Camila Mizutani. Foi utilizada uma API própria para o aplicativo, contendo todas as funções necessárias, como criação de usuário, alteração de seus dados, historicos de pedidos etc. Essa versão foi feita com a linha _Mobile First_ mantendo o React como ferramenta principal para o desenvolvimento.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Feito Com
 
-### `npm run build`
+Abaixo segue o que foi utilizado na criação deste projeto:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [ReactJs](https://pt-br.reactjs.org) - O React é uma biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web; 
+- [Styled-Components](https://styled-components.com/) - Styled-components é uma biblioteca para React e React Native que permite que você use estilos ao nível de componente na sua aplicação. Eles são escritos em uma mistura de JavaScript com CSS.
+- [Prettier](https://prettier.io/) - O Prettier atualiza seu código automaticamente seguindo os padrões que você quiser toda vez salva o arquivo;
+- [Axios](https://github.com/axios/axios) - Axios é um cliente HTTP baseado em Promises para fazer requisições. Pode ser utilizado tanto no navegador quando no Node. js. É um projeto open source, disponível no Github
+- [Router](https://reactrouter.com) - 
+O React Router é uma biblioteca padrão para roteamento no React. Ele permite a navegação entre visualizações de vários componentes em um aplicativo React e permite alterar a URL do navegador e mantém a IU sincronizada com a URL.
+- [Material UI](https://mui.com/pt/) - Material-UI é simplesmente uma biblioteca que nos permite importar e usar diferentes componentes para criar uma interface de usuário em nossos aplicativos React.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Deploy em Surge
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a href="https://maryam-labefood1.surge.sh/" target="blank"> Rappi4</a>
 
-### `npm run eject`
+<!-- CONTACT -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contato
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Érico Marshall - [Github](https://github.com/egMarshall) - **ericogmarshall1@gmail.com**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Glauber Apolinário - [Github](https://github.com/GlauberApolinario) - **glauber.apolinario@yahoo.com.br**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Guilherme Feijó - [Github](https://github.com/gtfeijo) - **gtfeijo@gmail.com**
 
-## Learn More
+Luiz Ricardo da Silva - [Github](https://github.com/luizricardodasilva) - **luiz.dug@gmail.com**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Mariana Stamatakis - [Github](https://github.com/MarianaStamatakis) - **mst.nanasta@gmail.com**
